@@ -1,0 +1,5 @@
+requirement:
+sudo apt install librdkafka-dev
+
+To check messages sent:
+kafka-avro-console-consumer --bootstrap-server localhost:9092 --property schema.registry.url=http://schema_registry:9052 --property print.key=true --from-beginning --topic test
