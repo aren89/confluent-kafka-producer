@@ -2,18 +2,16 @@ from confluent_kafka.avro import AvroProducer
 from injector import Injector
 
 from modules import ConfluentModule
-from sender import TestSender
+from producer import Producer
 
 
 def start_kafka_daemon():
     injector = Injector(modules=[ConfluentModule()])
-    test_sender = TestSender(injector.get(AvroProducer))
-    test_sender.push(
+    test_sender = Producer(injector.get(AvroProducer))
+    test_sender.produce(
         key={'id': '123'},
-        value={
-            'id': '123',
-            'trackingId': 'trackingId'
-        }, )
+        value={'id': '123', 'trackingId': 'trackingId'},
+        message_name='TestMessage')
 
 
 if __name__ == '__main__':
