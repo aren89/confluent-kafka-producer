@@ -2,7 +2,7 @@ from typing import Type, NewType
 
 
 BootstrapServers = NewType('kafka.boostrap.servers', str)
-SchemaRegistryUrl = NewType('chili.schema_registry.url', str)
+SchemaRegistryUrl = NewType('schema_registry.url', str)
 
 
 class ConfigurationKey:

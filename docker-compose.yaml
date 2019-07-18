@@ -1,0 +1,7 @@
+version: '2'
+services:
+  producer:
+    build: .
+    image: confluent-kafka-producer
+    volumes:
+      - ./application:/app
