@@ -1,12 +1,12 @@
 from confluent_kafka.avro import AvroProducer
 from injector import Injector
 
-from modules import ConfluentModule
+from modules import ConfluentModule, ConfigurationModule
 from producer import Producer
 
 
 def start_kafka_daemon():
-    injector = Injector(modules=[ConfluentModule()])
+    injector = Injector(modules=[ConfigurationModule(), ConfluentModule()])
     test_sender = Producer(injector.get(AvroProducer))
     test_sender.produce(
         key={'id': '123'},
