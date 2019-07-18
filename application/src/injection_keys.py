@@ -1,14 +1,13 @@
-from typing import Type
+from typing import Type, NewType
 
-from injector import Key
 
-BootstrapServers = Key('kafka.boostrap.servers')
-SchemaRegistryUrl = Key('chili.schema_registry.url')
+BootstrapServers = NewType('kafka.boostrap.servers', str)
+SchemaRegistryUrl = NewType('chili.schema_registry.url', str)
 
 
 class ConfigurationKey:
 
-    def __init__(self, injection_key: Key, key_type: Type):
+    def __init__(self, injection_key: NewType, key_type: Type):
         self._type = key_type
         self._injection_key = injection_key
 

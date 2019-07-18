@@ -4,7 +4,7 @@ from confluent_kafka.avro import AvroProducer
 from injector import Module, singleton, provider
 from configparser import ConfigParser
 
-from configuration import SchemaRegistryUrl, BootstrapServers, ConfigurationSections
+from injection_keys import SchemaRegistryUrl, BootstrapServers, ConfigurationSections
 
 
 class ConfluentModule(Module):
