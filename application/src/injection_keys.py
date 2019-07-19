@@ -1,7 +1,7 @@
 from typing import Type, NewType
 
 
-BootstrapServers = NewType('kafka.boostrap.servers', str)
+BootstrapServers = NewType('kafka.bootstrap.servers', str)
 SchemaRegistryUrl = NewType('schema_registry.url', str)
 
 
