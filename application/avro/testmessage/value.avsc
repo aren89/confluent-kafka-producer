@@ -4,14 +4,14 @@
     "namespace": "com.kafka.avro.testmessage.value",
     "fields": [
         {
-            "name": "trackingId",
+            "name": "id",
             "type": {
                 "type": "string",
                 "avro.java.string": "String"
             }
         },
         {
-            "name": "id",
+            "name": "trackingId",
             "type": {
                 "type": "string",
                 "avro.java.string": "String"
