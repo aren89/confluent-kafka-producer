@@ -1,4 +1,4 @@
-version: '2'
+version: '2.4'
 services:
   producer:
     build: .
@@ -6,7 +6,9 @@ services:
     volumes:
       - ./application:/app
     depends_on:
-      - kafka
+      kafka:
+          condition: service_healthy
+    links:
       - schema_registry
 
   zookeeper:
@@ -17,6 +19,11 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:latest
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "localhost", "9092"]
+      timeout: 45s
+      interval: 10s
+      retries: 10
     depends_on:
       - zookeeper
     ports:
