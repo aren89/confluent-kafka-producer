@@ -4,7 +4,9 @@ from confluent_kafka.avro import AvroProducer
 from injector import Module, singleton, provider
 from configparser import ConfigParser
 
-from injection_keys import SchemaRegistryUrl, BootstrapServers, ConfigurationSections
+from confluent_kafka_producer_core.injection_keys import SchemaRegistryUrl, BootstrapServers, ConfigurationSections
+from confluent_kafka_producer_core.services import ProduceService
+from confluent_kafka_producer_services.produce_service import ProduceServiceImpl
 
 
 class ConfluentModule(Module):
@@ -24,7 +26,7 @@ class ConfigurationModule(Module):
     def configure(self, binder):
         configuration = ConfigParser()
         configuration.read([
-            os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config', 'application.ini')
+            os.path.join('config', 'application.ini')
         ])
         sections = configuration.sections()
         sections.append('DEFAULT')
@@ -47,3 +49,8 @@ class ConfigurationModule(Module):
                 else:
                     value = configuration.get(section, configuration_section_key.name)
                 binder.bind(configuration_section_key.injection_key, value)
+
+
+class ApplicationModule(Module):
+    def configure(self, binder):
+        binder.bind(interface=ProduceService, to=ProduceServiceImpl, scope=singleton)

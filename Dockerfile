@@ -10,4 +10,6 @@ RUN pip install -r requirements.txt
 
 ADD application .
 
-CMD python src/kafka_daemon.py
+ENV PYTHONPATH "${PYTHONPATH}:/app/src"
+
+CMD gunicorn --bind 0.0.0.0:8000 confluent_kafka_producer_api.wsgi:app
