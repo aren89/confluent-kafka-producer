@@ -4,10 +4,11 @@ import signal
 import sys
 
 from confluent_kafka_producer_api.application import ConfluentKafkaApplication
+from util import ROOT_DIR
 
 logger = logging.getLogger(f'confluent-kafka-producer.{__name__}')
 
-with open(os.path.join('config', 'logo.txt'), 'r') as logo_file:
+with open(os.path.join(ROOT_DIR, 'config', 'logo.txt'), 'r') as logo_file:
     logger.info(logo_file.read())
 
 

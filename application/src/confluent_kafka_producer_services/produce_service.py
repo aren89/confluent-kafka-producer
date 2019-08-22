@@ -6,6 +6,7 @@ from confluent_kafka.avro import AvroProducer
 from injector import inject
 
 from confluent_kafka_producer_core.services import ProduceService
+from util import ROOT_DIR
 
 
 class ProduceServiceImpl(ProduceService):
@@ -21,8 +22,8 @@ class ProduceServiceImpl(ProduceService):
         self._producer.produce(
             topic=topic or f'com.confluent-kafka-producer.producer.{message_name}',
             key=key,
-            key_schema=avro.load(os.path.join(self.AVRO_PATH, message_name.lower(), self.KEY)),
+            key_schema=avro.load(os.path.join(ROOT_DIR, self.AVRO_PATH, message_name.lower(), self.KEY)),
             value=value,
-            value_schema=avro.load(os.path.join(self.AVRO_PATH, message_name.lower(), self.VALUE))
+            value_schema=avro.load(os.path.join(ROOT_DIR, self.AVRO_PATH, message_name.lower(), self.VALUE))
         )
         self._producer.flush()
