@@ -26,4 +26,4 @@ class ProduceServiceImpl(ProduceService):
             value=value,
             value_schema=avro.load(os.path.join(ROOT_DIR, self.AVRO_PATH, message_name.lower(), self.VALUE))
         )
-        self._producer.flush()
+        self._producer.flush(timeout=15)

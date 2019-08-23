@@ -7,9 +7,12 @@
 ```sh
 $ docker-compose up -d
 ```
-## Send custom message (WIP)
-curl -X POST 
-  http://127.0.0.1:4055/confluent-kafka-producer/api/v1/message
+## Send custom message
+```sh
+curl -X POST http://127.0.0.1:4055/confluent-kafka-producer/api/v1/message \
+-H "Content-Type: application/json" \
+-d "@sample-message.json"
+```
 
 ## Checking messages sent
 ```sh

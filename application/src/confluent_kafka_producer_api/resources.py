@@ -1,4 +1,4 @@
-from flask import Response
+from flask import Response, request
 from flask_restful import Resource
 from injector import inject
 
@@ -12,8 +12,14 @@ class MessageResource(Resource):
         self._produce_service = produce_service
 
     def post(self):
-        self._produce_service.produce(
-            key={'id': '123'},
-            value={'id': '123', 'trackingId': 'trackingId'},
-            message_name='TestMessage')
+        try:
+            data: dict = request.json
+            self._produce_service.produce(
+                key=data.get('key'),
+                value=data.get('value'),
+                topic=data.get('topic'),
+                message_name=data.get('messageName')
+            )
+        except Exception as e:
+            return Response(status=403, response=f'Exception: {e}')
         return Response(status=204)

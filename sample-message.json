@@ -1,0 +1,11 @@
+{
+  "key": {
+    "id": "123"
+  },
+  "value": {
+    "id": "123",
+    "trackingId": "trackingId"
+  },
+  "topic": "com.confluent-kafka-producer.producer.TestMessage",
+  "messageName": "TestMessage"
+}
