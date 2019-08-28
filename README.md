@@ -5,7 +5,7 @@
 
 ## Run
 ```sh
-$ docker-compose up -d
+$ docker-compose up -d --build
 ```
 ## Send custom message
 ```sh
@@ -14,7 +14,7 @@ curl -X POST http://127.0.0.1:4055/confluent-kafka-producer/api/v1/message \
 -d "@sample-message.json"
 ```
 
-## Checking messages sent
+## Checking sent messages
 ```sh
 $ docker-compose exec kafka bash
 $ kafka-console-consumer\
