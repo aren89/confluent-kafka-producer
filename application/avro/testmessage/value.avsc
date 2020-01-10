@@ -16,6 +16,10 @@
                 "type": "string",
                 "avro.java.string": "String"
             }
+        },
+        {
+            "name": "ts",
+            "type": "long"
         }
     ]
 }

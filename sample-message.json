@@ -4,7 +4,8 @@
   },
   "value": {
     "id": "123",
-    "trackingId": "trackingId"
+    "trackingId": "trackingId",
+    "ts": 1578579812
   },
   "topic": "com.confluent-kafka-producer.producer.TestMessage",
   "messageName": "TestMessage"
