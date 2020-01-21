@@ -1,0 +1,16 @@
+{
+  "key": {
+    "id": "message2key2"
+  },
+  "value": {
+    "id": "message2key2",
+    "messageid": "message1key1",
+    "status": "OK",
+    "items": [
+      {"id": "qwerty"}
+    ],
+    "ts": 1578579812
+  },
+  "topic": "com.confluent-kafka-producer.producer.TestMessage2",
+  "messageName": "TestMessage2"
+}

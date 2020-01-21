@@ -1,7 +1,7 @@
 {
     "type": "record",
-    "name": "TestMessageValue",
-    "namespace": "com.kafka.avro.testmessage.value",
+    "name": "TestMessage1Value",
+    "namespace": "com.kafka.avro.testmessage1.value",
     "fields": [
         {
             "name": "id",

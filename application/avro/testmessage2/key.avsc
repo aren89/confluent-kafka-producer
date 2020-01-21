@@ -1,0 +1,14 @@
+{
+    "type": "record",
+    "name": "TestMessage2Key",
+    "namespace": "com.kafka.avro.testmessage2.key",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "avro.java.string": "String"
+            }
+        }
+    ]
+}

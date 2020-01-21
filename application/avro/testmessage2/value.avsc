@@ -1,0 +1,51 @@
+{
+    "type": "record",
+    "name": "TestMessage2Value",
+    "namespace": "com.kafka.avro.testmessage2.value",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "avro.java.string": "String"
+            }
+        },
+        {
+            "name": "messageid",
+            "type": {
+                "type": "string",
+                "avro.java.string": "String"
+            }
+        },
+        {
+            "name": "status",
+            "type": {
+                "type": "string",
+                "avro.java.string": "String"
+            }
+        },
+       {
+              "name": "items",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "Item",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                   ]
+                  }
+                 }
+        },
+        {
+            "name": "ts",
+            "type": "long"
+        }
+    ]
+}
