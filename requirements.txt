@@ -3,7 +3,7 @@ injector==0.17.0
 requests==2.22
 avro-python3==1.8.2
 Werkzeug==0.15.5
-Flask==1.1.1
+Flask==2.3.2
 Flask-Injector==0.12.0
 Flask-RESTful==0.3.7
 gunicorn==19.9.0
